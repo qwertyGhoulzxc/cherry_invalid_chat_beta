@@ -95,12 +95,12 @@ export default function ChatPage({
             <ChatSidebar
               onClose={handleSidebarOnClose}
               user={user}
-              show={isLargeScreen || chatSidebarOpen}
+              show={isLargeScreen || !chatSidebarOpen}
               customActiveChannel={channelId}
             />
             <ChatChannel
               setShown={setChatSidebarOpen}
-              show={isLargeScreen || !chatSidebarOpen}
+              show={isLargeScreen || chatSidebarOpen}
               hideChannelOnThread={!isLargeScreen}
             />
           </div>
