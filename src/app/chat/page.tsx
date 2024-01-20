@@ -35,7 +35,7 @@ export default function ChatPage({
   const isLargeScreen = windowSize.width >= mdBreakpoint;
 
   useEffect(() => {
-    if (windowSize.width >= mdBreakpoint) setChatSidebarOpen(false);
+    if (windowSize.width >= mdBreakpoint) setChatSidebarOpen(true);
   }, [windowSize.width]);
 
   useEffect(() => {
@@ -92,15 +92,15 @@ export default function ChatPage({
           }
         >
           <div className="flex h-full flex-row">
-            <ChatSidebar
+             <ChatSidebar
               onClose={handleSidebarOnClose}
               user={user}
-              show={isLargeScreen || !chatSidebarOpen}
+              show={isLargeScreen || chatSidebarOpen}
               customActiveChannel={channelId}
             />
             <ChatChannel
               setShown={setChatSidebarOpen}
-              show={isLargeScreen || chatSidebarOpen}
+              show={isLargeScreen || !chatSidebarOpen}
               hideChannelOnThread={!isLargeScreen}
             />
           </div>
